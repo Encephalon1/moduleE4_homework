@@ -31,8 +31,8 @@ function HouseholdAppliances(name, appointment) {
 
 HouseholdAppliances.prototype = new ElectricalAppliances()
 
-deskLamp = new Lamps('bright yellow', 'desk lamp');
-microwave = new HouseholdAppliances('microwave', 'reheating food');
+let deskLamp = new Lamps('bright yellow', 'desk lamp');
+let microwave = new HouseholdAppliances('microwave', 'reheating food');
 console.log(deskLamp, microwave);
 deskLamp.plugIn();
 console.log(deskLamp);
