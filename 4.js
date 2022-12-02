@@ -1,5 +1,4 @@
-function ElectricalAppliances(power) {
-    this.power = power,
+function ElectricalAppliances() {
     this.electricalAppliancePlugIn = false
 }
 
@@ -11,9 +10,31 @@ ElectricalAppliances.prototype.unplug = function() {
     this.electricalAppliancePlugIn = false
 }
 
-function Lamps(power, light) {
-    this.light = light,
-    this.power = power
+ElectricalAppliances.prototype.power = function(power) {
+    console.log(`Power of appliance is ${power}`)
 }
 
-Lamps.prototype = new ElectricalAppliances()
+function Lamps(light, lampType) {
+    this.light = light,
+    this.lampType = lampType
+}
+
+Lamps.prototype = new ElectricalAppliances();
+Lamps.prototype.power = function(power) {
+    console.log(`Power of lamp is ${power}`)
+}
+
+function HouseholdAppliances(name, appointment) {
+    this.appointment = appointment,
+    this.name = name
+}
+
+HouseholdAppliances.prototype = new ElectricalAppliances()
+
+deskLamp = new Lamps('bright yellow', 'desk lamp');
+microwave = new HouseholdAppliances('microwave', 'reheating food');
+console.log(deskLamp, microwave);
+deskLamp.plugIn();
+console.log(deskLamp);
+deskLamp.power(60);
+microwave.power(2200);
